@@ -3,45 +3,77 @@
 		<image class="logo" src="/static/logo.png"></image>
 		<view>
 			<text class="title">121:{{nickName}}</text>
-			<button open-type="getUserInfo" lang="zh_CN" @getuserinfo="onGotUserInfo" @click="onGotUser">设置</button>
+			<button open-type="getUserInfo" lang="zh_CN" @getuserinfo="onGotUserInfo" @click="onGotUser">获取用户信息</button>
+			{{pageData}}
 		</view>
 	</view>
 </template>
 
 <script>
-    // import mixins from '../../common/mixin';
-	
+	import mixins from '../../common/mixin';
+	import util from '../../common/util';
+
 	export default {
-        // mixins: [mixins],
+        mixins: [mixins],
 		data() {
 			return {
 				title: 'Hello',
-				nickName: ''
+				nickName: '',
+				pageData: {}
 			}
 		},
-		onLoad() { 
+		onLoad() {
+			this.handleLoad();
 		},
 		methods: {
-			
-			onGotUserInfo: function(e) { 
-				//#ifdef MP-WEIXIN 
+			handleLoad: function() {
+				this.request({
+					url: 'api/page',
+					method: 'GET',
+					data: {
+
+					},
+					success: (response) => {
+						this.pageData = response;
+					},
+					fail: (response) => {
+
+					},
+					complete: () => {
+
+					}
+				});
+			},
+			onGotUserInfo: function(e) {
+				//#ifdef MP-WEIXIN
 					if (e.detail.errMsg !== 'getUserInfo:ok') {
-						console.log(e) 
+						console.log(e)
 						return false;
-					}		
-					else { 
-						console.log(e.detail.rawData) 
+					}
+					else {
+						// 微信小程序 获取到用户信息
+						uni.login({
+						  provider: 'weixin',
+						  success: (loginRes) => { 
+							// 获取用户信息
+							uni.getUserInfo({
+								  provider: 'weixin',
+								  success: (infoRes) => {
+										this.nickName = infoRes.userInfo.nickName
+										console.log('用户信息为：' + infoRes);
+								  }
+							});
+						  }
+						}); 
 					}
 				//#endif
 			},
-			
-			
-			onGotUser: function(e) { 
+			onGotUser: function(e) {
 					//#ifdef H5
-						console.log(e) 
+						console.log(e)
 					//#endif
 			},
-			
+
 		}
 	}
 </script>
