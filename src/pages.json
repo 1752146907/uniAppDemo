@@ -8,39 +8,81 @@
 				"backgroundTextStyle": "dark",
 				"enablePullDownRefresh": true
 			}
+		}, {
+			"path": "pages/category/index",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"navigationStyle":"custom",
+				"backgroundTextStyle": "dark",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/cart/index",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"navigationStyle":"custom",
+				"backgroundTextStyle": "dark",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/my/index",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "我的",
+				"navigationStyle":"custom",
+				"backgroundTextStyle": "dark",
+				"enablePullDownRefresh": true
+			}
 		}
 	],
-	// "tabBar": {
-	// 	"color": "#7A7E83",
-	// 	"selectedColor": "#3cc51f",
-	// 	"borderStyle": "black",
-	// 	"backgroundColor": "#ffffff",
-	// 	"list": [{
-	// 		"pagePath": "pages/index/index",
-	// 		"iconPath": "static/logo.png",
-	// 		"selectedIconPath": "static/logo.png",
-	// 		"text": "首页"
-	// 	}, {
-	// 		"pagePath": "pages/index/index",
-	// 		"iconPath": "static/logo.png",
-	// 		"selectedIconPath": "static/logo.png",
-	// 		"text": "分类"
-	// 	}, {
-	// 		"pagePath": "pages/index/index",
-	// 		"iconPath": "static/logo.png",
-	// 		"selectedIconPath": "static/logo.png",
-	// 		"text": "购物车"
-	// 	}, {
-	// 		"pagePath": "pages/index/index",
-	// 		"iconPath": "static/logo.png",
-	// 		"selectedIconPath": "static/logo.png",
-	// 		"text": "我的"
-	// 	}]
-	// },
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#F75148",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{ 
+			"pagePath": "pages/index/index",
+			"iconPath": "static/home.png",
+			"selectedIconPath": "static/home-active.png",
+			"text": "首页" 
+		}, { 
+			"pagePath": "pages/category/index",
+			"iconPath": "static/cate.png",
+			"selectedIconPath": "static/cate-active.png",
+			"text": "分类" 
+		}, {
+			"pagePath": "pages/cart/index",
+			"iconPath": "static/cart.png",
+			"selectedIconPath": "static/cart_active.png",
+			"text": "购物车" 
+			
+		}, {
+			"pagePath": "pages/my/index",
+			"iconPath": "static/user.png",
+			"selectedIconPath": "static/user-active.png",
+			"text": "我的",
+			"style": {
+				"navigationBarBackgroundColor": "#F75148",
+				"backgroundColorTop": "#F75148",
+				"backgroundColor": "#F6F6F6",
+				"navigationBarTitleText": "我的"
+			}
+		}] 
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "缤纷集",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
 	}
 }
