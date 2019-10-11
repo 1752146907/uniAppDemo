@@ -1,13 +1,11 @@
 <template>
-	<view class="user">
-		<!-- 这里是状态栏 -->
-		<view class="status_bar"></view> 
+	<view class="user"> 
 		<view class="hander">
 			<img class="hander-avatar" src="https://wx.qlogo.cn/mmopen/vi_32/aUddbUB5jSEbfQ2ClpMxY9tnicKEYdHnIL4ZjdiaNEsTlmCnjaMGicsUPAfnSncbcqZTlQtYNNg9atWMMuQOuwaVg/132" alt="">
 			Mr.Li
 		</view>
 		<view class="order-navbar">
-			<view style="padding-left: 15px;"> 
+			<view style="padding-left: 15px;" @click="handleOrder"> 
 				<view class="order-navbar-headeres">
 					<span>我的订单</span>
 					<view class="item-sub">
@@ -73,9 +71,19 @@
 			}
 		},
 		onLoad() {  
-			this.handleLoad();
+			this.handleLoad(); 
 		},
 		methods: {
+			handleOrder: function() {
+				// 判断是否已登录
+				util.handleAuth({
+				  checkLogin: true,
+				  success: () => {
+					// 登录之后的逻辑
+					console.log("登录成功了，你想干嘛呢")
+				  }
+				});
+			},
 			handleLoad: function() {
 				this.request({
 					url: 'api/page',

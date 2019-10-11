@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App'
 import storage from './common/storage.js' 
 
+import './uni.scss'
+
 Vue.config.productionTip = false
 
 Vue.prototype.$storage = storage;				// 本地存储

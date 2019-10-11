@@ -1,5 +1,7 @@
 <template>
 	<view class="content">
+		<!-- 这里是状态栏 -->
+		<view class="status_bar"></view> 
 		购物车
 	</view>
 </template>
@@ -41,7 +43,7 @@
 	}
 </script>
 
-<style>
+<style scoped> 
 	.content {
 		text-align: center;
 		height: 400upx;

@@ -1,3 +1,4 @@
+ 
 var events = {};
 
 // 时间装换
@@ -26,6 +27,37 @@ function handleChackPnone(phone) {
     }
 }
 
+// 校验登录
+function handleAuth(config) {
+	uni.getStorage({
+	    key: 'storage_token',
+	    success: function (res) {
+			if (config.checkLogin) {
+				config.success(); 
+			} 
+	    }, 
+		fail: function (res) { 
+			// 去登录
+			uni.navigateTo({
+			    url: '/pages/login/index'
+			}); 
+			// 监听回调 是否成功
+			uni.$on("login-callback", function (data) {
+				if (data.success && config.success) {
+				  config.success();
+				} else {
+				  if (config.fail) {
+					config.fail();
+				  }
+				}
+				
+				uni.$off('login-callback')
+			}); 
+		}
+	})
+}
+
 exports.timeToYMD = timeToYMD;
 exports.handleBack = handleBack;
 exports.handleChackPnone = handleChackPnone;
+exports.handleAuth = handleAuth;
