@@ -39,7 +39,7 @@
 				"navigationBarTitleText": "登录",
 				"navigationStyle":"custom",
 				"backgroundTextStyle": "dark",
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": false
 			}
 		}
 	],
