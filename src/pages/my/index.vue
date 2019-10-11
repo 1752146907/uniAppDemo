@@ -76,8 +76,7 @@
 		methods: {
 			handleOrder: function() {
 				// 判断是否已登录
-				util.handleAuth({
-				  checkLogin: true,
+				util.handleAuth({ 
 				  success: () => {
 					// 登录之后的逻辑
 					console.log("登录成功了，你想干嘛呢")

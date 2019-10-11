@@ -32,9 +32,7 @@ function handleAuth(config) {
 	uni.getStorage({
 	    key: 'storage_token',
 	    success: function (res) {
-			if (config.checkLogin) {
-				config.success(); 
-			} 
+			config.success(); 
 	    }, 
 		fail: function (res) { 
 			// 去登录
