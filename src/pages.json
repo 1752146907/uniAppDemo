@@ -1,6 +1,14 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/category/index",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"navigationStyle":"custom",
+				"backgroundTextStyle": "dark",
+				"enablePullDownRefresh": true
+			}
+		}, {
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页",
@@ -8,8 +16,34 @@
 				"backgroundTextStyle": "dark",
 				"enablePullDownRefresh": true
 			}
-		} 
-	], 
+		}, {
+			"path": "pages/cart/index",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"navigationStyle":"custom",
+				"backgroundTextStyle": "dark",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/my/index",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "我的",
+				"navigationStyle":"custom",
+				"backgroundTextStyle": "dark",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle":"custom",
+				"backgroundTextStyle": "dark",
+				"enablePullDownRefresh": false
+			}
+		}
+	],
+	"tabBar": {
 		"color": "#7A7E83",
 		"selectedColor": "#F75148",
 		"borderStyle": "black",
